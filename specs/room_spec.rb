@@ -10,6 +10,7 @@ class TestRoom <MiniTest::Test
     @song1 =Song.new("Teenage Wasteland")
     @song2 = Song.new("Beastly")
     @song3 = Song.new("Time Bending")
+    @song4 = Song.new("Bahama Mama")
     @songs = [@song1, @song2, @song3]
     @guest1 = Guest.new("Henry")
     @guest2 = Guest.new("Larry")
@@ -39,8 +40,14 @@ def test_add_multiple_guests
   assert_equal(2, @room.number_of_guests())
 end
 
-def test_can_remove_guest
-  @room.remove_guest(@guest1)
-  assert_equal(1, @room.number_of_guests())
+def test_can_remove_guests
+  @room.check_in_guests(@guests)
+  @room.remove_guests()
+  assert_equal(0, @room.number_of_guests())
+end
+
+def test_can_add_song
+  @room.add_new_song(@song4)
+  assert_equal(4, @room.number_of_songs())
 end
 end

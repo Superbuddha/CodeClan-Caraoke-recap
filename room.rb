@@ -28,8 +28,11 @@ def check_in_guests(guests)
   #or guests.each{|guest| check_in_guest(guest)}
 end
 
-def remove_guest(guest)
-  @guests.pop(guest)
+def remove_guests
+  @guests.clear
 end
 
+def add_new_song(song)
+  @songs.push(song)
+end
 end
